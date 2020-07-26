@@ -43,7 +43,7 @@ def longestpat(file, length):
         # Resets count for next pattern.
         count = 0
 
-    # Recursively identifies a common substrings among the sequences, incrementing the length by 1 each time.
+    # Recursively identifies a common substring among the sequences, incrementing the length by 1 each time.
     if isinstance(shared_pattern, str) and len(shared_pattern) > 1:
         print(shared_pattern,len(shared_pattern))
         return longestpat('Sample_data',length + 1)
