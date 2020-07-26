@@ -39,11 +39,11 @@ def longestpat(file, length):
                 count += 1
             if count == len(other):
                 shared_pattern = pattern
-                # If all the shared patterns need to be printed it should be done within this conditional statement.
+                #print(shared_pattern) will print all the common substrings.
         # Resets count for next pattern.
         count = 0
 
-    # Recursively identifies all the common substrings among the sequences, incrementing the length by 1 each time.
+    # Recursively identifies a common substrings among the sequences, incrementing the length by 1 each time.
     if isinstance(shared_pattern, str) and len(shared_pattern) > 1:
         print(shared_pattern,len(shared_pattern))
         return longestpat('Sample_data',length + 1)
