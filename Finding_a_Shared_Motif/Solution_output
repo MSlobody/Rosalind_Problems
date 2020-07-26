@@ -1,3 +1,3 @@
-To solve the problem the last recursive substring sequence that is outputted should be selected, which is:
+To solve the problem the last recursive substring sequence that is returned should be selected, which is:
 
 CACCCTGCAAAAACAGGCCGGCTTTGGATTCTAGTTATACCGAACCAACGGCCCAATCGGTGTGCGACATTATCTTTTC
