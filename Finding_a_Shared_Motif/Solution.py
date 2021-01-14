@@ -3,12 +3,13 @@ import re
 # Convert FASTA file to list of DNA sequences
 def FASTA_to_list(file = "Sample_data"):
     file_info = ""
+    DNA_seqs = []
     handle = open(file)
+    
     for line in handle:
         file_info += line.strip()
     file_list = file_info.split(">")
 
-    DNA_seqs = []
     for entry in file_list:
         if len(entry) <= 2:
             continue
