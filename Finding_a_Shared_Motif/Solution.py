@@ -25,13 +25,9 @@ def longestpat(length):
     count = 0
     pattern = ""  #the substring
     shared_pattern = ""
-
-    for i in range(len(shortest)):
-        if len(shortest[i:i + length]) == length:
-            pattern = shortest[i:i + length]
-        # The below conditional statement ensures im not repeating the last pattern for the remaining i values in the loop that are shorter than the pattern
-        if (len(shortest) - i) < len(pattern):
-            break
+    
+    for i in range(len(shortest)-length+1):
+        pattern = shortest[i:i + length]
 
         for j in range(len(other)):
             # Checks if that particular pattern is in all other sequences.
