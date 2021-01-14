@@ -1,7 +1,7 @@
 import re
 
 # Convert FASTA file to list of DNA sequences
-def FASTA_to_list(file):
+def FASTA_to_list(file = "Sample_data"):
     file_info = ""
     handle = open(file)
     for line in handle:
@@ -16,12 +16,12 @@ def FASTA_to_list(file):
         DNA_seqs.append(nuc_seq[0])
     return DNA_seqs
 
+DNA_seqs_sort = sorted(FASTA_to_list(), key=len)
+shortest = DNA_seqs_sort[0]
+other = DNA_seqs_sort[1:]
 
-# Identifies the shortest DNA sequence in the list and from this sequence finds the common substrings shared between all the sequences.
-def longestpat(file, length):
-    DNA_seqs_sort = sorted(FASTA_to_list(file), key=len)
-    shortest = DNA_seqs_sort[0]
-    other = DNA_seqs_sort[1:]
+# From the shortest DNA sequence in the list finds the common substrings shared between all the sequences.
+def longestpat(length):
     count = 0
     pattern = ""  #the substring
     shared_pattern = ""
@@ -46,10 +46,10 @@ def longestpat(file, length):
     # Recursively identifies a common substring among the sequences, incrementing the length by 1 each time.
     if isinstance(shared_pattern, str) and len(shared_pattern) > 1:
         print(shared_pattern,len(shared_pattern))
-        return longestpat('Sample_data',length + 1)
+        return longestpat(length + 1)
 
-    #The base condition that stops the recursive call is having a shared_pattern length above 1.
+    #The condition that stops the recursive call is having a shared_pattern length above 1. After the longest pattern is identified the next recursion will be the last. 
     else:
         return "we're done!"
 
-print(longestpat('Sample_data',2))
+print(longestpat(2))
